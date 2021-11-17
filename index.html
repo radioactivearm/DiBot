@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <h1>
+    <h1 id="title">
         DiBot - a dice rolling machine
     </h1>
     <div class="container">
@@ -20,7 +20,9 @@
                     <div class='form'>
                         <label for='roll'>Enter a Die Combo</label>
                         <input class='form-control' id='roll' type='text' placeholder='1d20+5'>
-                        <button onclick="CollectRoll()" type="button" class="enter btn btn-dark">ENTER</button>
+                        <button onclick="CollectRoll()" type="button" class="enter btn btn-dark">Roll</button>
+                        <button onclick="Advantage()" type="button" class="btn btn-success">Advantage</button>
+                        <button type="button" class="btn btn-danger">Disadvantage</button>
                     </div>
 
                 </form>
@@ -30,7 +32,14 @@
                 <h4 id="unaddedResult"></h4>
             </div>
             <div class="col-lg-3 col-md-3">
-                <button type="button" class="r20 btn btn-dark">Dark</button>
+
+                <button type="button" class="btn btn-primary">+1</button>
+                <button onclick="Twenty()" type="button" id="d20" class="btn btn-warning">1d20</button>
+                <button type="button" id="d12" class="btn btn-dark">1d12</button>
+                <button type="button" id="d10" class="btn btn-dark">1d10</button>
+                <button type="button" id="d8" class="btn btn-dark">1d8</button>
+                <button type="button" id="d6" class="btn btn-dark">1d6</button>
+                <button type="button" id="d4" class="btn btn-dark">1d4</button>
             </div>
         </div>
     </div>

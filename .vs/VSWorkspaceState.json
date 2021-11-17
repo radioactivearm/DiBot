@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\static",
+    "\\static\\css",
     "\\static\\js"
   ],
-  "SelectedNode": "\\static\\js\\dice.js",
+  "SelectedNode": "\\static\\js\\main.js",
   "PreviewInSolutionExplorer": false
 }

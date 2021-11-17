@@ -1,0 +1,30 @@
+html,
+body {
+    background-color: lightblue;
+}
+
+#title {
+    text-align: center;
+}
+
+#addedResult, #unaddedResult {
+    text-align: center;
+    padding-top: 10px;
+    padding-right: 2px;
+    padding-left: 2px;
+}
+
+.class {
+
+}
+
+.btn {
+    width: 100%;
+    margin-bottom:10px;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+.enter {
+    margin-top: 10px;
+}
