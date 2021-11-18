@@ -67,11 +67,40 @@ function AdvRoll(diceArray, adv = true) {
 
 
 // This puts the return on the page
-function PutReturn(added, unadded) {
+function PutReturn(added) {
     document.getElementById('addedResult').innerHTML = added;
-    document.getElementById('unaddedResult').innerHTML = unadded;
+    /*document.getElementById('unaddedResult').innerHTML = unadded;*/
 
   
+}
+
+function Display(array) {
+    console.log(array);
+    let html = '';
+    let total = 0;
+    const len = array.length;
+    for (di = 0; di < len; di++) {
+        if (array[di].includes('h') && di != len - 1) {
+            let hi = array[di].replace('h', '');
+            html = html + '<span class="high">' + hi + '</span><span>+</span>';
+        } else if (array[di].includes('h') && di == len - 1) {
+            let hi = array[di].replace('h', '');
+            html = html + '<span class="high">' + hi + '</span>';
+        } else if (array[di].includes('l') && di != len - 1) {
+            let lo = array[di].replace('l', '');
+            html = html + '<span class="low">' + lo + '</span><span>+</span>';
+        } else if (array[di].includes('l') && di == len - 1) {
+            let lo = array[di].replace('l', '');
+            html = html + '<span class="low">' + lo + '</span>';
+        } else if (di != len - 1) {
+            let ki = array[di].replace('k', '');
+            html = html + '<span class="number">' + ki + '</span><span>+</span>';
+        } else {
+            let ki = array[di].replace('k', '');
+            html = html + '<span class="number">' + ki + '</span>';
+        }
+        document.getElementById('unaddedResult').innerHTML = html;
+    }
 }
 
 // This rejoins the rolled dice out puts so you can see
@@ -89,6 +118,45 @@ function AddArray(array) {
     const reducer = (a, b) => parseInt(a) + parseInt(b);
     return array.reduce(reducer);
 }
+
+
+// function add advantage
+function AddAdvantage(array, adv = true) {
+
+    let destroyed = [];
+
+    let whatIadd;
+    let not;
+
+    if (adv == true) {
+        whatIadd = 'h';
+        not = 'l';
+    } else {
+        whatIadd = 'l';
+        not = 'h';
+    }
+
+    array.forEach(a => {
+        if (a.includes('h') && adv == true) {
+            destroyed.push(a.split('h')[0]);
+            console.log('high');
+            console.log(a);
+        } else if (a.includes('l') && adv == false) {
+            destroyed.push(a.split('l')[0]);
+            console.log('low');
+            console.log(a);
+        } else if (a.includes('k')) {
+            destroyed.push(a.split('k')[0]);
+            console.log('added');
+            console.log(a);
+        }
+    });
+
+    return AddArray(destroyed);
+    
+
+}
+
 
 function TakeAdvantage(array) {
     
@@ -111,6 +179,8 @@ function TakeAdvantage(array) {
 
     return array;
 }
+
+
 
 //=========================================
 // this runs everything
@@ -150,7 +220,9 @@ function Advantage() {
 
     let newAdv = TakeAdvantage(adv);
 
-    console.log(newAdv);
+    Display(newAdv);
+
+    PutReturn(AddAdvantage(newAdv));
 
 }
 
