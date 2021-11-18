@@ -67,15 +67,18 @@ function AdvRoll(diceArray, adv = true) {
 
 
 // This puts the return on the page
-function PutReturn(added) {
+function PutReturn(added, unadded) {
     document.getElementById('addedResult').innerHTML = added;
-    /*document.getElementById('unaddedResult').innerHTML = unadded;*/
+    document.getElementById('unaddedResult').innerHTML = unadded;
 
   
 }
 
-function Display(array) {
+function Display(array, adv=true) {
     console.log(array);
+
+    
+
     let html = '';
     let total = 0;
     const len = array.length;
@@ -101,6 +104,9 @@ function Display(array) {
         }
         document.getElementById('unaddedResult').innerHTML = html;
     }
+
+
+    document.getElementById('addedResult').innerHTML = AddAdvantage(array, adv);
 }
 
 // This rejoins the rolled dice out puts so you can see
@@ -222,7 +228,21 @@ function Advantage() {
 
     Display(newAdv);
 
-    PutReturn(AddAdvantage(newAdv));
+}
+
+
+function Disadvantage() {
+    let spread = document.getElementById('roll').value;
+
+    let axedSpread = ShatterDice(spread);
+    console.log(axedSpread);
+    let adv = AdvRoll(axedSpread, true);
+
+    console.log(adv);
+
+    let newAdv = TakeAdvantage(adv);
+
+    Display(newAdv, adv=false);
 
 }
 

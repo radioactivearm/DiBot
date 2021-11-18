@@ -40,3 +40,10 @@ function Twenty() {
 
 
 //==================================================
+
+
+function Clear() {
+    document.getElementById('roll').value = '';
+    document.getElementById('addedResult').innerHTML = '';
+    document.getElementById('unaddedResult').innerHTML = '';
+}

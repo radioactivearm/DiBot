@@ -22,14 +22,20 @@
                         <input class='form-control' id='roll' type='text' placeholder='1d20+5'>
                         <button onclick="CollectRoll()" type="button" class="enter btn btn-dark">Roll</button>
                         <button onclick="Advantage()" type="button" class="btn btn-success">Advantage</button>
-                        <button type="button" class="btn btn-danger">Disadvantage</button>
+                        <button onclick="Disadvantage()" type="button" class="btn btn-danger">Disadvantage</button>
+                        <button onclick="Clear()" type="button" class="btn btn-warning">Clear</button>
                     </div>
 
                 </form>
             </div>
             <div class="col-lg-6 col-md-6">
-                <h2 id="addedResult">Not Rolled</h2>
-                <h4 id="unaddedResult"></h4>
+                <div class="card">
+                    <div class="card-body">
+                        <h2 id="addedResult">Roll</h2>
+                        <h4 id="unaddedResult"></h4>
+                    </div>
+                </div>
+
             </div>
             <div class="col-lg-3 col-md-3">
 
