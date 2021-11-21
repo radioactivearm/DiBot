@@ -43,6 +43,54 @@ function RollDice(dice) {
 
 //========================================
 
+// roll for crit auto high roll
+function CritRollHigh(dice) {
+
+    // init roll
+    let roll;
+
+    if (dice.includes('d')) {
+        // add max roll possible
+        roll = dice.split('d')[1];
+        console.log('max');
+        console.log(roll);
+
+        // then roll dice as normal
+        roll = roll + '+' + RollDice(dice);
+        console.log('max + roll');
+        console.log(roll);
+
+    } else {
+        roll = dice;
+    }
+
+    return roll;
+}
+
+function CritRollNorm(dice) {
+
+    // init roll
+    let roll;
+
+    if (dice.includes('d')) {
+        // add max roll possible
+        roll = RollDice(dice);
+
+
+        // then roll dice as normal
+        roll = roll + '+' + RollDice(dice);
+
+
+    } else {
+        roll = dice;
+    }
+
+    return roll;
+}
+
+
+//========================================
+
 function AdvRoll(diceArray, adv = true) {
     let rolls = [];
 
@@ -246,3 +294,52 @@ function Disadvantage() {
 
 }
 
+
+// Roll if clicked button Critical, runs if rolled a nat 20 previously
+function Critical() {
+    // get value of roll
+    let spread = document.getElementById('roll').value;
+
+    // seperate value
+    let axedSpread = ShatterDice(spread);
+
+    let roll = [];
+
+    const len = axedSpread.length;
+    // roll dice
+    for (i = 0; i < len; i++) {
+        roll.push(CritRollNorm(axedSpread[i]));
+    }
+
+    console.log(roll);
+
+    const added = AddArray(ShatterDice(Rejoin(roll)));
+    const unadded = Rejoin(roll);
+
+    PutReturn(added, unadded);
+}
+
+
+// Roll if clicked button Critical, runs if rolled a nat 20 previously
+function CriticalHigh() {
+    // get value of roll
+    let spread = document.getElementById('roll').value;
+
+    // seperate value
+    let axedSpread = ShatterDice(spread);
+
+    let roll = [];
+
+    const len = axedSpread.length;
+    // roll dice
+    for (i = 0; i < len; i++) {
+        roll.push(CritRollHigh(axedSpread[i]));
+    }
+
+    console.log(roll);
+
+    const added = AddArray(ShatterDice(Rejoin(roll)));
+    const unadded = Rejoin(roll);
+
+    PutReturn(added, unadded);
+}

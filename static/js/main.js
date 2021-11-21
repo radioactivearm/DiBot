@@ -3,73 +3,6 @@ console.log('static/app.js');
 
 // =====================================
 
-function Twenty() {
-/*    let dTwenty = document.getElementById('d20');*/
-
-    let input = document.getElementById('roll');
-
-    const currentRoll = input.value;
-
-    let newRoll = '';
-
-    let diceArray = ShatterDice(currentRoll);
-    const len = diceArray.length;
-
-    if (diceArray[len - 1].includes('d20')) {
-        let timArray = diceArray[len - 1].split('d20');
-
-        let tim = timArray[0];
-
-        let plusTime = parseInt(tim) + 1;
-
-        diceArray[len - 1] = plusTime + 'd20';
-
-        newRoll = Rejoin(diceArray);
-    } else if (currentRoll == '') {
-        newRoll = '1d20';
-    } else {
-        newRoll = currentRoll + '+1d20';
-    }
-
-
-
-    console.log(newRoll);
-
-    input.value = newRoll;
-}
-
-
-function Twelve() {
-
-    let input = document.getElementById('roll');
-
-    const currentRoll = input.value;
-
-    let newRoll = '';
-
-    let diceArray = ShatterDice(currentRoll);
-    const len = diceArray.length;
-
-    if (diceArray[len - 1].includes('d12')) {
-        let timArray = diceArray[len - 1].split('d12');
-
-        let tim = timArray[0];
-
-        let plusTime = parseInt(tim) + 1;
-
-        diceArray[len - 1] = plusTime + 'd12';
-
-        newRoll = Rejoin(diceArray);
-    } else if (currentRoll == '') {
-        newRoll = '1d12';
-    } else {
-        newRoll = currentRoll + '+1d12';
-    }
-
-    console.log(newRoll);
-
-    input.value = newRoll;
-}
 
 function PlusDice(whatIwant) {
 
@@ -124,6 +57,37 @@ function PlusDice(whatIwant) {
 
 
     console.log(newRoll);
+
+    input.value = newRoll;
+
+}
+
+
+//==================================================
+
+function PlusOne() {
+    // grabbing input line
+    let input = document.getElementById('roll');
+
+    // grabbing value (roll) from input line
+    const currentRoll = input.value;
+
+    // dividing roll by components by splitting on the '+' sign
+    let spread = currentRoll.split('+');
+
+    // getting length of spread inorder to find the last element of array
+    const sLen = spread.length;
+
+    // grabbing last element of the array
+    let num = spread[sLen - 1];
+
+    if (num.includes('d')) {
+        spread.push('1');
+    } else {
+        spread[sLen - 1] = String(parseInt(num) + 1);
+    }
+
+    let newRoll = spread.join('+');
 
     input.value = newRoll;
 
