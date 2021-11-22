@@ -229,6 +229,9 @@ function TakeAdvantage(array) {
 }
 
 
+const delay = 4000;
+
+let sound = new Audio('static/images/many_dice_roll.wav');
 
 //=========================================
 // this runs everything
@@ -250,7 +253,15 @@ function CollectRoll() {
     const added = AddArray(roll);
     const unadded = Rejoin(roll);
 
-    PutReturn(added, unadded);
+    sound.play();
+
+    setTimeout(PutReturn(added, unadded), delay);
+
+    
+
+    console.log(sound);
+
+    
     
 }
 //============================================
@@ -267,6 +278,8 @@ function Advantage() {
 
     let newAdv = TakeAdvantage(adv);
 
+    sound.play();
+
     Display(newAdv);
 
 }
@@ -281,6 +294,8 @@ function Disadvantage() {
 
 
     let newAdv = TakeAdvantage(adv);
+
+    sound.play();
 
     Display(newAdv, adv=false);
 
@@ -306,6 +321,8 @@ function Critical() {
     const added = AddArray(ShatterDice(Rejoin(roll)));
     const unadded = Rejoin(roll);
 
+    sound.play();
+
     PutReturn(added, unadded);
 }
 
@@ -328,6 +345,8 @@ function CriticalHigh() {
 
     const added = AddArray(ShatterDice(Rejoin(roll)));
     const unadded = Rejoin(roll);
+
+    sound.play();
 
     PutReturn(added, unadded);
 }
