@@ -54,10 +54,6 @@ function PlusDice(whatIwant) {
     });
 
 
-
-
-    console.log(newRoll);
-
     input.value = newRoll;
 
 }
@@ -72,20 +68,39 @@ function PlusOne() {
     // grabbing value (roll) from input line
     const currentRoll = input.value;
 
+    console.log(currentRoll);
+
     // dividing roll by components by splitting on the '+' sign
     let spread = currentRoll.split('+');
+
+    console.log(spread);
 
     // getting length of spread inorder to find the last element of array
     const sLen = spread.length;
 
     // grabbing last element of the array
-    let num = spread[sLen - 1];
+    let num;
 
-    if (num.includes('d')) {
-        spread.push('1');
+    if (sLen == 1) {
+        num = spread[0];
+        if (num.includes('d')) {
+            spread.push('1');
+        } else if (spread[0] == '') {
+            spread[0] = '1';
+        } else {
+            spread[0] = String(parseInt(spread[0]) + 1);
+        }
     } else {
-        spread[sLen - 1] = String(parseInt(num) + 1);
+        num = spread[sLen - 1];
+        if (num.includes('d')) {
+            spread.push('1');
+        } else {
+            spread[sLen - 1] = String(parseInt(num) + 1);
+        }
     }
+    
+
+
 
     let newRoll = spread.join('+');
 
@@ -100,4 +115,14 @@ function Clear() {
     document.getElementById('roll').value = '';
     document.getElementById('addedResult').innerHTML = '';
     document.getElementById('unaddedResult').innerHTML = '';
+}
+
+
+//===================================================
+
+function PopUp() {
+    let diceImage = document.getElementById('icard');
+
+    diceImage.classList.remove('invisible');
+    diceImage.classList.add('visisble');
 }

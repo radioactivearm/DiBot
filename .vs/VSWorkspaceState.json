@@ -3,8 +3,9 @@
     "",
     "\\static",
     "\\static\\css",
+    "\\static\\images",
     "\\static\\js"
   ],
-  "SelectedNode": "\\static\\js\\main.js",
+  "SelectedNode": "\\static\\js\\dice.js",
   "PreviewInSolutionExplorer": false
 }

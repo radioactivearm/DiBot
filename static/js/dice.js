@@ -51,14 +51,12 @@ function CritRollHigh(dice) {
 
     if (dice.includes('d')) {
         // add max roll possible
-        roll = dice.split('d')[1];
-        console.log('max');
-        console.log(roll);
+        let bananaSplit = dice.split('d');
+
+        roll = bananaSplit[0] * bananaSplit[1];
 
         // then roll dice as normal
         roll = roll + '+' + RollDice(dice);
-        console.log('max + roll');
-        console.log(roll);
 
     } else {
         roll = dice;
@@ -123,7 +121,6 @@ function PutReturn(added, unadded) {
 }
 
 function Display(array, adv=true) {
-    console.log(array);
 
     
 
@@ -193,16 +190,13 @@ function AddAdvantage(array, adv = true) {
     array.forEach(a => {
         if (a.includes('h') && adv == true) {
             destroyed.push(a.split('h')[0]);
-            console.log('high');
-            console.log(a);
+
         } else if (a.includes('l') && adv == false) {
             destroyed.push(a.split('l')[0]);
-            console.log('low');
-            console.log(a);
+ 
         } else if (a.includes('k')) {
             destroyed.push(a.split('k')[0]);
-            console.log('added');
-            console.log(a);
+
         }
     });
 
@@ -267,10 +261,9 @@ function Advantage() {
     let spread = document.getElementById('roll').value;
 
     let axedSpread = ShatterDice(spread);
-    console.log(axedSpread);
+
     let adv = AdvRoll(axedSpread, true);
 
-    console.log(adv);
 
     let newAdv = TakeAdvantage(adv);
 
@@ -283,10 +276,9 @@ function Disadvantage() {
     let spread = document.getElementById('roll').value;
 
     let axedSpread = ShatterDice(spread);
-    console.log(axedSpread);
+
     let adv = AdvRoll(axedSpread, true);
 
-    console.log(adv);
 
     let newAdv = TakeAdvantage(adv);
 
@@ -311,8 +303,6 @@ function Critical() {
         roll.push(CritRollNorm(axedSpread[i]));
     }
 
-    console.log(roll);
-
     const added = AddArray(ShatterDice(Rejoin(roll)));
     const unadded = Rejoin(roll);
 
@@ -335,8 +325,6 @@ function CriticalHigh() {
     for (i = 0; i < len; i++) {
         roll.push(CritRollHigh(axedSpread[i]));
     }
-
-    console.log(roll);
 
     const added = AddArray(ShatterDice(Rejoin(roll)));
     const unadded = Rejoin(roll);

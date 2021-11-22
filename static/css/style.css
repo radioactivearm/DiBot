@@ -14,8 +14,10 @@ body {
     padding-left: 2px;
 }
 
-.card {
-    background-color: lightgray;
+.roll-card {
+    background-image: url("./../images/starboarder.jpg");
+    background-size: 100%;
+    color: white;
 }
 
 .low {
@@ -37,4 +39,15 @@ body {
 
 .enter {
     margin-top: 10px;
+}
+
+.image-card {
+    height: 100%;
+}
+
+#d20image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
 }

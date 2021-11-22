@@ -15,7 +15,7 @@
     </h1>
     <div class="container">
         <div class="row">
-            <div class="col-lg-3 col-md-3">
+            <div class="col-lg-4 col-md-4">
                 <form id='form'>
                     <div class='form'>
                         <label for='roll'>Enter a Die Combo</label>
@@ -32,14 +32,20 @@
             </div>
             <div class="col-lg-6 col-md-6">
                 <div class="card">
-                    <div class="card-body">
+                    <div class="card-body roll-card">
+                        <!-- image for card background found here http://cr103.com/collections/Graphic/slides/starboarder.html -->
                         <h2 id="addedResult">Roll</h2>
                         <h4 id="unaddedResult"></h4>
                     </div>
                 </div>
+                <div id="icard" class="card image-card invisible">
+                    <div class="card-body">
+                        <img src="static/images/1d20.jpg" id="d20image" />
+                    </div>
+                </div>
 
             </div>
-            <div class="col-lg-3 col-md-3">
+            <div class="col-lg-2 col-md-2">
 
                 <button onclick="PlusOne()" type="button" id="plusone" class="btn btn-primary">+1</button>
                 <button onclick="PlusDice(this.innerHTML)" type="button" id="d20" class="btn btn-warning">1d20</button>
