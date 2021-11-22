@@ -1,6 +1,7 @@
 html,
 body {
     background-color: lightblue;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 #title {
@@ -18,7 +19,10 @@ body {
     background-image: url("./../images/starboarder.jpg");
     background-size: 100%;
     color: white;
+    
+    border-radius: 5px;
 }
+
 
 .low {
     color: red;
@@ -29,12 +33,19 @@ body {
 }
 
 
+#abox {
+    margin-top: 10px;
+}
 
 .btn {
     width: 100%;
-    margin-bottom:10px;
+    margin-top:10px;
     padding-left: 2px;
     padding-right: 2px;
+}
+
+#roll {
+    margin-top: 10px;
 }
 
 .enter {
