@@ -34,7 +34,7 @@ body {
 
 
 #abox {
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 .btn {
@@ -42,15 +42,15 @@ body {
     margin-top:10px;
     padding-left: 2px;
     padding-right: 2px;
+    height: 60px;
 }
 
 #roll {
     margin-top: 10px;
+    height: 60px;
+    font-size: larger;
 }
 
-.enter {
-    margin-top: 10px;
-}
 
 .image-card {
     height: 100%;
