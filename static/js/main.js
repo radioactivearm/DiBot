@@ -53,6 +53,7 @@ function PlusDice(whatIwant) {
 
     });
 
+    soundThree.play();
 
     input.value = newRoll;
 
@@ -68,12 +69,8 @@ function PlusOne() {
     // grabbing value (roll) from input line
     const currentRoll = input.value;
 
-    console.log(currentRoll);
-
     // dividing roll by components by splitting on the '+' sign
     let spread = currentRoll.split('+');
-
-    console.log(spread);
 
     // getting length of spread inorder to find the last element of array
     const sLen = spread.length;
@@ -106,6 +103,8 @@ function PlusOne() {
 
     input.value = newRoll;
 
+    soundFour.play();
+
 }
 
 //==================================================
@@ -115,6 +114,10 @@ function Clear() {
     document.getElementById('roll').value = '';
     document.getElementById('addedResult').innerHTML = '';
     document.getElementById('unaddedResult').innerHTML = '';
+
+
+    // playing the sound of picking up dice
+    soundTwo.play();
 }
 
 
@@ -126,3 +129,19 @@ function PopUp() {
     diceImage.classList.remove('invisible');
     diceImage.classList.add('visisble');
 }
+
+//==================================================
+// got this chunck of code from https://www.w3schools.com/howto/howto_js_trigger_button_enter.asp
+
+
+var input = document.getElementById("roll");
+
+input.addEventListener("keydown", function (event) {
+
+    if (event.keyCode === 13) {
+
+        event.preventDefault();
+
+        document.getElementById("enter").click();
+    }
+});
